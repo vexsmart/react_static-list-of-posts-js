@@ -1,3 +1,4 @@
+import './styles/global.scss';
 import { PostList } from './components/PostList';
 import postsFromServer from './api/posts.json';
 import commentsFromServer from './api/comments.json';
