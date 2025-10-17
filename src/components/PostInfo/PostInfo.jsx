@@ -2,12 +2,10 @@ import './PostInfo.scss';
 import { UserInfo } from '../UserInfo';
 import { CommentList } from '../CommentList';
 
-export const PostInfo = ({ post, users, comments }) => {
-  const postComments = comments.filter(comment => comment.postId === post.id);
-  const relatedUser = users.find(user => user.id === post.userId);
-  let commentsList = <CommentList comments={postComments} />;
+export const PostInfo = ({ post }) => {
+  let commentsList = <CommentList comments={post.comments} />;
 
-  if (postComments.length === 0) {
+  if (post.comments.length === 0) {
     commentsList = (
       <>
         <hr />
@@ -24,7 +22,7 @@ export const PostInfo = ({ post, users, comments }) => {
         <p>
           {' Posted by  '}
 
-          <UserInfo user={relatedUser} />
+          <UserInfo user={post.user} />
         </p>
       </div>
 
